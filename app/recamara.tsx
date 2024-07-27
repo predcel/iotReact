@@ -3,18 +3,29 @@ import { View, StyleSheet, ScrollView, Switch } from "react-native";
 import { Avatar } from '@rneui/themed';
 import { Text } from '@rneui/themed';
 
-export default function Recamara() {
-    const randomNum = (max = 0) => {
-        const aux = Math.random();
-        return Math.floor(aux * max);
-    }
+const randomNum = (max = 0) => {
+    const aux = Math.random();
+    return Math.floor(aux * max);
+}
 
+export default function Recamara() {
     const [isEnabled, setIsEnabled] = useState(randomNum(2) == 1 ? true : false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
-    // funciones para cada switch
-    const [isOn, setIsOn] = useState(false);
-    const changeSwtich = () => setIsOn(previousState => !previousState);
+    const [isOn1, setIsOn1] = useState(false);
+    const changeSwtich1 = () => {
+        setIsOn1(previousState => !previousState);
+        setIsOn2(previousState => isOn2 ? !previousState : previousState)
+    }
+
+    const [isOn2, setIsOn2] = useState(false);
+    const changeSwtich2 = () => {
+        setIsOn2(previousState => !previousState)
+        setIsOn1(previousState => isOn1 ? !previousState : previousState)
+    };
+
+    const temperatura = useState(typeof temperatura === 'undefined' ? randomNum(41) : temperatura);
+    // const changeSwtich2 = () => setIsOn2(previousState => !previousState);
 
     return (
         <ScrollView>
@@ -43,27 +54,27 @@ export default function Recamara() {
             </View>
             <Text style={estilos.header}>Temperatura</Text>
             <View style={estilos.renglon}>
-                <Text h4>{randomNum(41)}° C</Text>
+                <Text h4>{temperatura}° C</Text>
             </View>
             <View style={estilos.renglon}>
                 <View style={estilos.basicStyle}>
                     <Text style={estilos.subHeader}>Calefacción</Text>
                     <Switch
                         trackColor={{ false: '#767577', true: '#81b0ff' }}
-                        thumbColor={isOn ? '#f5dd4b' : '#f4f3f4'}
+                        thumbColor={isOn1 ? '#f5dd4b' : '#f4f3f4'}
                         ios_backgroundColor="#3e3e3e"
-                        onValueChange={changeSwtich}
-                        value={isOn}
+                        onValueChange={changeSwtich1}
+                        value={isOn1}
                     />
                 </View>
                 <View style={estilos.basicStyle}>
                     <Text style={estilos.subHeader}>Aire acondicionado</Text>
                     <Switch
                         trackColor={{ false: '#767577', true: '#81b0ff' }}
-                        thumbColor={isOn ? '#f5dd4b' : '#f4f3f4'}
+                        thumbColor={isOn2 ? '#f5dd4b' : '#f4f3f4'}
                         ios_backgroundColor="#3e3e3e"
-                        onValueChange={changeSwtich}
-                        value={isOn}
+                        onValueChange={changeSwtich2}
+                        value={isOn2}
                     />
                 </View>
             </View>
