@@ -1,41 +1,61 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, Switch } from "react-native";
 import { Avatar } from '@rneui/themed';
-import { Button, ButtonGroup, withTheme } from '@rneui/themed';
+import { Text } from '@rneui/themed';
 
-export default function Living() {
+export default function Cocina() {
     return (
         <ScrollView>
-            
-            <View style={estilos.basicStyle}>
-                <Text>Bienvenido a la APP</Text>
+            <View style={estilos.renglon}>
+                <Avatar
+                    size={200}
+                    rounded
+                    icon={{ name: 'kitchen', type: 'material', color: '#009688' }}
+                    containerStyle={{
+                        borderColor: 'grey',
+                        borderStyle: 'solid',
+                        borderWidth: 3,
+                    }} />
             </View>            
         </ScrollView>
-
     );
 }
 
 const estilos = StyleSheet.create({
-    contentView: {
-        flex: 1,
-        marginTop: 15,
-        justifyContent: "center",
-        alignItems: "center",
-    },
     basicStyle: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        textAlign: 'center',
     },
-    titleContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 8,
+    header: {
+        backgroundColor: "#2089ff",
+        color: "white",
+        textAlign: "center",
+        paddingVertical: 5,
+        marginBottom: 10,
+    },
+    subHeader: {
+        backgroundColor: "#2089dc",
+        color: "white",
+        textAlign: "center",
+        paddingVertical: 1,
+        marginBottom: 10,
+        paddingHorizontal: 20
+    },
+    view: {
+        margin: 10,
+    },
+    espacioDerecho: {
+        marginRight: 10
+    },
+    espacioIzquierdo: {
+        marginLeft: 10
     },
     renglon: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: "center",
-        marginBottom: 50,
+        marginBottom: 30,
     }
 });

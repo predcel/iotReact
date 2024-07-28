@@ -36,7 +36,7 @@ export default function RootLayout() {
           ),
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="living"
         options={{
           title: 'Sala',
@@ -44,7 +44,7 @@ export default function RootLayout() {
             <TabBarIcon name={focused ? 'tv' : 'tv-outline'} color={color} />
           ),
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="cocina"
         options={{
@@ -54,7 +54,7 @@ export default function RootLayout() {
           ),
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="garage"
         options={{
           title: 'Garage',
@@ -62,7 +62,7 @@ export default function RootLayout() {
             <TabBarIcon name={focused ? 'car' : 'car-outline'} color={color} />
           ),
         }}
-      />
+      /> */}
     </Tabs>
   );
 }
